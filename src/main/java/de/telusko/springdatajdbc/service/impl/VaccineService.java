@@ -176,5 +176,12 @@ public class VaccineService implements IVaccineService {
         return vaccineRepository.updateVaccineInfo(newPrice,name);
     }
 
+    @Override
+    public int deleteaccineInfo(Double minP,double maxP){
+
+        return vaccineRepository.deleteaccineInfo(minP,maxP);
+    }
+
+
 
 }

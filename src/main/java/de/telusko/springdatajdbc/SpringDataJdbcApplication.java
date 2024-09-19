@@ -21,10 +21,10 @@ public class SpringDataJdbcApplication {
 
 
         VaccineService vaccineService= container.getBean(VaccineService.class);
-        int roe=vaccineService.updateVaccineInfo(1333.0,"Spuutnik");
+        int roe=vaccineService.deleteaccineInfo(900.0,1000.0);
 
         if (roe!=0){
-            System.out.println("Updated");
+            System.out.println("Updated success"+ roe);
         }else {
             System.out.println("Not Updated");
         }

@@ -36,6 +36,11 @@ public interface VaccineRepository extends JpaRepository<Vaccine, Integer>, Crud
     @Query("update Vaccine  set vaccineCost=:newPrice where vaccineName=:name")
     public int updateVaccineInfo(Double newPrice,String name);
 
+    @Transactional
+    @Modifying
+    @Query("delete Vaccine  where vaccineCost between :minP and :maxP")
+    public int deleteaccineInfo(Double minP,double maxP);
+
 
 
 }

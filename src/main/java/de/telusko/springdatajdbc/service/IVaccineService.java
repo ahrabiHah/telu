@@ -45,6 +45,7 @@ public interface IVaccineService {
     public List<String> searchByVaccineCostRange(Double minP, Double maxP);
 
     public int updateVaccineInfo(Double newPrice,String name);
+    public int deleteaccineInfo(Double minP,double maxP);
 
 
 }

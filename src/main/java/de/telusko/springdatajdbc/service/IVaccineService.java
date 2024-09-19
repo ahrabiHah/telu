@@ -2,6 +2,9 @@ package de.telusko.springdatajdbc.service;
 
 
 import de.telusko.springdatajdbc.model.Vaccine;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface IVaccineService {
 
@@ -20,5 +23,19 @@ public interface IVaccineService {
     public String deletebyId(Integer id);
 
 
-    Iterable<Vaccine> findByVaccineCompany(String name);
+    public Vaccine searchVaccinById(Integer id);
+    public Iterable<Vaccine> searchVaccinByIds(Iterable<Integer> id);
+    public Iterable<Vaccine> searchVaccinByVaccines(Iterable<Vaccine> id);
+    public List<Vaccine> searchVaccinByVaccin(Vaccine id);
+
+    public String removeVaccinesByIds(Iterable<Integer> ids );
+
+    public String removeVaccinesByIdsCrud(Iterable<Integer> ids );
+
+    public List<Vaccine> findByVaccineCostLessThan(Double vaccinCost);
+    Iterable<Vaccine> findVaccineByVaccineCostNear(Double cost,Double and);
+
+    Iterable<Vaccine> getAllVaccin();
+
+
 }

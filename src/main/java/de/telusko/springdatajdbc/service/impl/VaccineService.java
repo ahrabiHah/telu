@@ -15,6 +15,7 @@ import java.util.Optional;
 public class VaccineService implements IVaccineService {
 
 
+    @Autowired
     private final VaccineRepository vaccineRepository;
 
     public VaccineService(VaccineRepository vaccineRepository) {
@@ -152,6 +153,27 @@ public class VaccineService implements IVaccineService {
     public Iterable<Vaccine> getAllVaccin() {
         // Use the built-in findAll() method to retrieve all vaccines
         return vaccineRepository.findAll();
+    }
+
+    @Override
+    public List<Vaccine> searchByVaccineCompany(String nameCompany) {
+        return vaccineRepository.searchByVaccineCompany(nameCompany);
+    }
+
+    @Override
+    public List<Vaccine> searchByVaccineCompanyName(String com1, String com2) {
+        return vaccineRepository.searchByVaccineCompanyName(com1,com2);
+    }
+
+    @Override
+    public List<String> searchByVaccineCostRange(Double minP, Double maxP) {
+        return vaccineRepository.searchByVaccineCostRange(minP,maxP);
+    }
+
+    @Override
+    public int updateVaccineInfo(Double newPrice,String name){
+
+        return vaccineRepository.updateVaccineInfo(newPrice,name);
     }
 
 

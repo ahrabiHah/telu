@@ -20,14 +20,14 @@ public class SpringDataJdbcApplication {
         ConfigurableApplicationContext container = SpringApplication.run(SpringDataJdbcApplication.class, args);
 
 
-//        IVaccineService service = container.getBean(VaccineService.class);
-//        service.findByVaccineCostLessThan(1000d).forEach(v-> System.out.println("the Vaccin "+v.getVaccineName()+" with cost less than "+v.getVaccineCost()));
+        VaccineService vaccineService= container.getBean(VaccineService.class);
+        int roe=vaccineService.updateVaccineInfo(1333.0,"Spuutnik");
 
-
-        IVaccineService service = container.getBean(VaccineService.class);
-
-
-
+        if (roe!=0){
+            System.out.println("Updated");
+        }else {
+            System.out.println("Not Updated");
+        }
         container.close();
     }
 
